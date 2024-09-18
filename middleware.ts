@@ -10,7 +10,6 @@ const supabaseAuthMiddleware = createMiddleware({
 })
 
 export async function middleware(request: NextRequest) {
-  // @ts-expect-error type of request is incompatible because of npm link I guess
   return await supabaseAuthMiddleware(request)
 }
 
