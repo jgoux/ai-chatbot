@@ -1,17 +1,27 @@
-import { createMiddleware } from '@supabase/auth/next'
-import { NextRequest } from 'next/server'
+import { supabaseMiddleware, createRouteMatcher } from '@supabase/nextjs/server'
 
-const supabaseAuthMiddleware = createMiddleware({
-  isPublicPath: pathname =>
-    pathname.startsWith('/login') ||
-    pathname.startsWith('/signup') ||
-    pathname.startsWith('/auth'),
-  loginPath: '/login'
-})
+const isPublicRoute = createRouteMatcher(['/login(.*)', '/signup(.*)'])
 
-export async function middleware(request: NextRequest) {
-  return await supabaseAuthMiddleware(request)
-}
+export default supabaseMiddleware(
+  async (auth, request) => {
+    const session = await auth()
+
+    // protect all routes except public ones
+    if (!isPublicRoute(request) && !session.user) {
+      return session.redirectToSignIn()
+    }
+
+    // redirect to home if user is logged in and on public route
+    if (isPublicRoute(request) && session.user) {
+      return session.redirectToHome()
+    }
+  },
+  {
+    paths: {
+      signIn: '/login'
+    }
+  }
+)
 
 export const config = {
   matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)']

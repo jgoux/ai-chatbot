@@ -1,4 +1,4 @@
 import { Database } from '@/lib/types'
-import { createClient as createSupabaseClient } from '@supabase/auth/next/client'
+import { createClient as createSupabaseClient } from '@supabase/nextjs/client'
 
 export const createClient = () => createSupabaseClient<Database>()
