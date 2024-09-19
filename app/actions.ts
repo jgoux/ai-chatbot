@@ -30,7 +30,7 @@ export async function getChats(userId?: string | null) {
       .eq('user_id', userId)
       .throwOnError()
 
-    return data?.map(chat => chat.payload as Chat) ?? []
+    return data?.map(chat => chat.payload).filter(chat => chat !== null) ?? []
   } catch (error) {
     return []
   }
@@ -53,7 +53,7 @@ export async function getChat(id: string, userId: string) {
     .eq('id', id)
     .maybeSingle()
 
-  return (data?.payload as Chat) ?? null
+  return data?.payload ?? null
 }
 
 export async function removeChat({ id, path }: { id: string; path: string }) {
@@ -114,7 +114,7 @@ export async function getSharedChat(id: string) {
     .not('payload->sharePath', 'is', null)
     .maybeSingle()
 
-  return (data?.payload as Chat) ?? null
+  return data?.payload ?? null
 }
 
 export async function shareChat(id: string) {
@@ -134,7 +134,7 @@ export async function shareChat(id: string) {
     .eq('id', id)
     .maybeSingle()
 
-  const chat = data?.payload as Chat | null
+  const chat = data?.payload ?? null
 
   if (!chat || chat.userId !== session.user.id) {
     return {
