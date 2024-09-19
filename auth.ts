@@ -1,4 +1,4 @@
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@supabase-labs/nextjs/server'
 import { Session } from '@/lib/types'
 
 export async function auth(): Promise<Session | null> {

@@ -2,7 +2,7 @@
 
 import { z } from 'zod'
 import { ResultCode } from '@/lib/utils'
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@supabase-labs/nextjs/server'
 
 interface Result {
   type: string

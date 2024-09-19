@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@supabase-labs/nextjs/server'
 import { redirect } from 'next/navigation'
 
 export interface UserMenuProps {

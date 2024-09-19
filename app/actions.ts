@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 
 import { auth } from '@/auth'
 import { type Chat } from '@/lib/types'
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@supabase-labs/nextjs/server'
 
 export async function getChats(userId?: string | null) {
   const session = await auth()

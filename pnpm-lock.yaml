@@ -38,6 +38,9 @@ dependencies:
   '@radix-ui/react-tooltip':
     specifier: ^1.1.2
     version: 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1)(react@18.3.1)
+  '@supabase-labs/nextjs':
+    specifier: ^0.1.4
+    version: 0.1.4(@supabase/ssr@0.5.1)(@supabase/supabase-js@2.45.4)(next@14.2.6)
   '@supabase/ssr':
     specifier: ^0.5.1
     version: 0.5.1(@supabase/supabase-js@2.45.4)
@@ -1182,6 +1185,20 @@ packages:
     resolution: {integrity: sha512-A9+lCBZoaMJlVKcRBz2YByCG+Cp2t6nAnMnNba+XiWxnj6r4JUFqfsgwocMBZU9LPtdxC6wB56ySYpc7LQIoJg==}
     dev: false
 
+  /@supabase-labs/nextjs@0.1.4(@supabase/ssr@0.5.1)(@supabase/supabase-js@2.45.4)(next@14.2.6):
+    resolution: {integrity: sha512-qqWIisFNjSc926aokx45UVzwoTVIfamlg4Qr8Q/T2kq2L1lXqtdY+E0H1zFS8jETuptfypfdKmU9klB+mldHWg==}
+    peerDependencies:
+      '@supabase/ssr': ^0.5.1
+      '@supabase/supabase-js': ^2.45.4
+      next: ^14.0.0-0 || ^15.0.0-0
+    dependencies:
+      '@supabase/ssr': 0.5.1(@supabase/supabase-js@2.45.4)
+      '@supabase/supabase-js': 2.45.4
+      defu: 6.1.4
+      next: 14.2.6(react-dom@18.3.1)(react@18.3.1)
+      regexparam: 3.0.0
+    dev: false
+
   /@supabase/auth-js@2.65.0:
     resolution: {integrity: sha512-+wboHfZufAE2Y612OsKeVP4rVOeGZzzMLD/Ac3HrTQkkY4qXNjI6Af9gtmxwccE5nFvTiF114FEbIQ1hRq5uUw==}
     dependencies:
@@ -1799,6 +1816,10 @@ packages:
     resolution: {integrity: sha512-O8x12RzrUF8xyVcY0KJowWsmaJxQbmy0/EtnNtHRpsOcT7dFk5W598coHqBVpmWo1oQQfsCqfCmkZN5DJrZVdg==}
     dependencies:
       character-entities: 2.0.2
+    dev: false
+
+  /defu@6.1.4:
+    resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
     dev: false
 
   /delayed-stream@1.0.0:
@@ -3247,6 +3268,11 @@ packages:
 
   /regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
+    dev: false
+
+  /regexparam@3.0.0:
+    resolution: {integrity: sha512-RSYAtP31mvYLkAHrOlh25pCNQ5hWnT106VukGaaFfuJrZFkGRX5GhUAdPqpSDXxOhA2c4akmRuplv1mRqnBn6Q==}
+    engines: {node: '>=8'}
     dev: false
 
   /remark-gfm@3.0.1:
