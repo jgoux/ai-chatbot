@@ -1,4 +1,4 @@
-import { supabaseMiddleware, createRouteMatcher } from '@supabase/nextjs/server'
+import { supabaseMiddleware, createRouteMatcher } from '@supabase-labs/nextjs/server'
 
 const isPublicRoute = createRouteMatcher(['/login(.*)', '/signup(.*)'])
 
