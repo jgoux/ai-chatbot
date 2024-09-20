@@ -3,17 +3,13 @@ import { supabaseMiddleware, createRouteMatcher } from '@supabase-labs/nextjs/se
 const isPublicRoute = createRouteMatcher(['/login(.*)', '/signup(.*)'])
 
 export default supabaseMiddleware(
-  async (auth, request) => {
-    const session = await auth()
-
-    // protect all routes except public ones
-    if (!isPublicRoute(request) && !session.user) {
-      return session.redirectToSignIn()
+  (auth, request) => {
+    if (!isPublicRoute(request)) {
+      auth().protect()
     }
 
-    // redirect to home if user is logged in and on public route
-    if (isPublicRoute(request) && session.user) {
-      return session.redirectToHome()
+    if (isPublicRoute(request) && auth().user) {
+      auth().redirect("/")
     }
   },
   {
