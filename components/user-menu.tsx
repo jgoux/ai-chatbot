@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@supabase-labs/nextjs/server'
 import { redirect } from 'next/navigation'
 
 export interface UserMenuProps {
@@ -42,7 +42,7 @@ export function UserMenu({ user }: UserMenuProps) {
               'use server'
               const supabase = createClient()
               await supabase.auth.signOut()
-              redirect('/login')
+              redirect('/')
             }}
           >
             <button className=" relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-xs outline-none transition-colors hover:bg-red-500 hover:text-white focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50">

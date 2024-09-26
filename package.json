@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --noEmit",
-    "supabase:generate:types": "supabase gen types --lang=typescript --local > utils/supabase/types.ts",
+    "supabase:generate:types": "supabase gen types --lang=typescript --local > types/database.ts",
     "format:write": "prettier --write \"{app,lib,components}/**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"{app,lib,components}**/*.{ts,tsx,mdx}\" --cache"
   },
@@ -21,6 +21,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
+    "@supabase-labs/nextjs": "^0.1.7",
     "@supabase/ssr": "^0.5.1",
     "ai": "^3.3.17",
     "class-variance-authority": "^0.7.0",
